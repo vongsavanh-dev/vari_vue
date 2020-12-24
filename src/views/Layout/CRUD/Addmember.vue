@@ -1,0 +1,129 @@
+<template>
+  <v-container>
+    <v-form class="mt-5 mb-3" ref="form">
+      <v-row dense>
+        <v-col cols="12" md="2" sm="4">
+          <v-select
+              label="ເພດ"
+              :rules="nameRules"
+              :items="gender"
+              :item-value="'genderE'"
+              :item-text="'name'"
+              dense
+              outlined
+              name="gender"
+              v-model="value.gender"
+          ></v-select>
+        </v-col>
+        <v-col cols="12" md="5" sm="8">
+          <v-text-field
+              label="ປ້ອນຊື່"
+              outlined
+              v-model="value.name"
+              :rules="nameRules"
+              required
+              dense>
+          </v-text-field>
+        </v-col>
+        <v-col cols="12" md="5" sm="12">
+          <v-text-field
+              label="ປ້ອນນາມສະກຸນ"
+              v-model="value.surname"
+              :rules="nameRules"
+              required
+              outlined
+              dense>
+          </v-text-field>
+        </v-col>
+      </v-row>
+
+      <v-row dense>
+        <v-col cols="12" md="6" sm="12">
+          <v-text-field
+              label="ປ້ອນເບີໂທ"
+              v-model="value.phone"
+              :rules="numberRules"
+              outlined
+              dense>
+          </v-text-field>
+        </v-col>
+        <v-col cols="12" md="6" sm="12">
+          <v-text-field
+              label="ປ້ອນບ້ານ"
+              v-model="value.village"
+              :rules="nameRules"
+              outlined
+              dense>
+          </v-text-field>
+        </v-col>
+      </v-row>
+
+      <v-row dense>
+        <v-col cols="12" md="6" sm="12">
+          <v-select
+              dense
+              outlined
+              v-model="value.province_id"
+              :rules="nameRules"
+              label="ແຂວງ"
+              name="province"
+              :items="provinces"
+              item-text="name"
+              item-value="id">
+          </v-select>
+        </v-col>
+
+        <v-col cols="12" md="6" sm="12">
+          <v-select
+              label="ເມືອງ"
+              v-model="value.district_id"
+              :rules="nameRules"
+              dense
+              outlined
+              :items="districts"
+              item-text="name"
+              item-value="id">
+          </v-select>
+        </v-col>
+
+      </v-row>
+      <v-row>
+        <v-col cols="12">
+          <v-textarea
+              class="mx-2"
+              label="ປ້ອນຈຳນວນສະມາຊິກ"
+              v-model="value.family_members"
+              :rules="numberRules"
+              rows="1"
+          ></v-textarea>
+        </v-col>
+      </v-row>
+      <v-divider></v-divider>
+      <v-card-actions class="d-flex justify-end align-end">
+        <v-btn color="primary" @click="ValidateFrom" :loading="btnLoading">
+          ບັນທຶກ
+        </v-btn>
+        <v-btn color="error" @click="$emit('close')">
+          ຍົກເລີກ
+        </v-btn>
+
+      </v-card-actions>
+    </v-form>
+  </v-container>
+</template>
+
+<script>
+
+import MixinsAddManage from "@/Mixin/VariMember/Add-Mange-Member"
+
+export default {
+  mixins: [MixinsAddManage],
+  created() {
+    this.FetchData();
+  },
+}
+</script>
+
+<style scoped>
+
+</style>
