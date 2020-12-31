@@ -101,7 +101,9 @@
                   label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ (ຕຸກ)"
                   v-model="value.family_members"
                   :rules="numberRules"
+                  outlined
                   rows="1"
+                  dense
               ></v-text-field>
             </v-col>
           </v-row>
