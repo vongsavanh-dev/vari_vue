@@ -91,7 +91,7 @@
         <v-col cols="12">
           <v-textarea
               class="mx-2"
-              label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ"
+              label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ (ຕຸກ)"
               v-model="value.family_members"
               :rules="numberRules"
               rows="1"

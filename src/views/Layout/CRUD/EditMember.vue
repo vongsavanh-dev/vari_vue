@@ -89,7 +89,7 @@
         <v-col cols="12">
           <v-textarea
               class="mx-2"
-              label="ປ້ອນຈຳນວນສະມາຊິກ"
+              label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ (ຕຸກ)"
               v-model="MemberEdit.family_members"
               :rules="numberRules"
               rows="1"
