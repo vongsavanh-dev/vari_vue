@@ -10,6 +10,7 @@ export default {
             ],
             value: {
                 gender: "",
+                golden_time: "",
                 name: "",
                 surname: "",
                 phone: "",
@@ -18,6 +19,7 @@ export default {
                 village: "",
                 family_members: "",
             },
+            golden_time:null,
             gender: [
                 {
                     name: 'ທ້າວ',

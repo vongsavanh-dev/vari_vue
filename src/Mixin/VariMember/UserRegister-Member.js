@@ -17,6 +17,7 @@ export default {
                 district_id: "",
                 village: "",
                 family_members: "",
+                golden_time:"",
             },
             gender: [
                 {
@@ -33,6 +34,7 @@ export default {
             selectedDistrict: {},
             filterDistricts: [],
             btnLoading: false,
+            golden_time:null,
 
         }
     },
@@ -67,6 +69,7 @@ export default {
 
         SaveData() {
             this.$axios.post('member', this.value).then((res) => {
+                console.log(res)
                 if (res) {
                     setTimeout(() => {
                         this.$router.push({

@@ -64,10 +64,12 @@ export default {
                 'province_id':this.MemberEdit.province_id,
                 'district_id':this.MemberEdit.district_id,
                 'family_members':this.MemberEdit.family_members,
+                'golden_time':this.MemberEdit.golden_time,
             }).then(res => {
                 if (res.status === 200) {
                     setTimeout(() => {
                         this.$emit('close');
+                        this.$emit('success');
                         this.$toast.success("ອັບເດດຂໍ້ມູນສຳເລັດ...", {
                             position: "top-right",
                             timeout: 3000,

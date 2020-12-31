@@ -26,6 +26,7 @@
           :headers="headers"
           :items="members"
           :itemid="members"
+
       >
         <template v-slot:item.actions="{item}">
           <v-icon
@@ -86,19 +87,24 @@ export default {
   },
   data: () => ({
     headers: [
+
+
       {
         text: 'ເພດ',
         align: 'start',
         value: 'gender',
+        sortable: false,
+
       },
-      { text: 'ຊື່', value: 'name' },
-      { text: 'ນາມສະກຸນ', value: 'surname' },
-      { text: 'ເບີໂທລະສັບ', value: 'phone' },
-      { text: 'ບ້ານ', value: 'village' },
-      { text: 'ເມືອງ', value: 'district_name' },
-      { text: 'ແຂວງ', value: 'province_name' },
-      { text: 'ຈຳນວນສະມາຊິກ', value: 'family_members' },
-      { text: 'Actions', value: 'actions'},
+      { text: 'ຊື່', value: 'name', align:'center', sortable: false,},
+      { text: 'ນາມສະກຸນ', value: 'surname',align:'center',sortable: false,},
+      { text: 'ເບີໂທ', value: 'phone',align:'center',sortable: false, },
+      { text: 'ບ້ານ', value: 'village',align:'center',sortable: false, },
+      { text: 'ເມືອງ', value: 'district_name',align:'center',sortable: false },
+      { text: 'ແຂວງ', value: 'provice_name',align:'center',sortable: false },
+      { text: 'ຈຳນວນນ້ຳທີ່ຊົມໃຊ້', value: 'family_members',align:'center',sortable: false },
+      { text: 'ເວລາສະດວກຮັບນ້ຳ', value: 'golden_time',align:'center',sortable: false },
+      { text: 'Actions', value: 'actions',sortable: false},
     ],
     members:[],
     memberID: "",
@@ -134,6 +140,7 @@ export default {
       this.$axios.get('member').then((res) => {
         if (res.data.status == 200) {
           this.members = res.data.data.data;
+          console.log(this.members)
         }
       })
 

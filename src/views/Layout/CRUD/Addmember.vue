@@ -91,11 +91,30 @@
         <v-col cols="12">
           <v-textarea
               class="mx-2"
-              label="ປ້ອນຈຳນວນສະມາຊິກ"
+              label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ"
               v-model="value.family_members"
               :rules="numberRules"
               rows="1"
           ></v-textarea>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col cols="12">
+          <span class="title-timeline">ເວລາສະດວກຮັບນ້ຳດື່ມ</span>
+          <v-radio-group class="ml-2"
+              v-model="value.golden_time"
+              row>
+            <v-radio
+                color="blue"
+                label="9:00 - 16:00"
+                value="9:00-16:00">
+            </v-radio>
+            <v-radio
+                label="18:00 - 20:00"
+                value="18:00-20:00">
+            </v-radio>
+          </v-radio-group>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -124,6 +143,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.title-timeline{
+  font-family: $font-family;
+  margin-left: 10px;
+  color: #484848;
 
+}
 </style>

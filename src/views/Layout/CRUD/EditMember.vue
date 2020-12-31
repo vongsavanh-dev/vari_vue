@@ -97,6 +97,26 @@
         </v-col>
       </v-row>
 
+
+      <v-row>
+        <v-col cols="12">
+          <span class="title-timeline">ເວລາສະດວກຮັບນ້ຳດື່ມ</span>
+          <v-radio-group class="ml-2"
+              v-model="MemberEdit.golden_time"
+              row>
+            <v-radio
+                color="blue"
+                label="9:00 - 16:00"
+                value="9:00-16:00">
+            </v-radio>
+            <v-radio
+                label="18:00 - 20:00"
+                value="18:00-20:00">
+            </v-radio>
+          </v-radio-group>
+        </v-col>
+      </v-row>
+
       <v-divider></v-divider>
       <v-card-actions class="d-flex justify-end align-end" @click="ValidateFrom">
         <v-btn color="primary">
@@ -124,6 +144,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.title-timeline{
+  font-family: $font-family;
+  margin-left: 10px;
+  color: #484848;
 
+}
 </style>

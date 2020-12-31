@@ -93,15 +93,34 @@
               </v-select>
             </v-col>
           </v-row>
+
           <v-row>
             <v-col cols="12" >
               <v-textarea
                   class="mx-2"
-                  label="ປ້ອນຈຳນວນສະມາຊິກ"
+                  label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ"
                   v-model="value.family_members"
                   :rules="numberRules"
                   rows="1"
               ></v-textarea>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col cols="12">
+              <span class="title-timeline">ເວລາສະດວກຮັບນ້ຳດື່ມ</span>
+              <v-radio-group
+                  v-model="value.golden_time"
+                  row>
+                <v-radio
+                    color="blue"
+                    label="9:00 - 16:00"
+                    value="9:00-16:00">
+                </v-radio>
+                <v-radio
+                    label="18:00 - 20:00"
+                    value="18:00-20:00">
+                </v-radio>
+              </v-radio-group>
             </v-col>
           </v-row>
 
@@ -139,7 +158,7 @@ export default {
   margin-bottom: 80px;
   & .card-register{
       width: 700px;
-      height: 600px;
+      height: 670px;
   }
 }
 .image-register {
@@ -162,6 +181,12 @@ export default {
     color: #00838d;
 
   }
+}
+.title-timeline{
+  font-family: $font-family;
+  margin-left: 10px;
+  color: #484848;
+
 }
 .theme--light.v-btn:not(.v-btn--flat):not(.v-btn--text):not(.v-btn--outlined) {
   background-color: #3FD0DC;
