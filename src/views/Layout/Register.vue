@@ -96,13 +96,13 @@
 
           <v-row>
             <v-col cols="12" >
-              <v-textarea
+              <v-text-field
                   class="mx-2"
                   label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ (ຕຸກ)"
                   v-model="value.family_members"
                   :rules="numberRules"
                   rows="1"
-              ></v-textarea>
+              ></v-text-field>
             </v-col>
           </v-row>
           <v-row>
