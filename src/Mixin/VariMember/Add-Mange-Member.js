@@ -21,16 +21,10 @@ export default {
             gender: [
                 {
                     name: 'ທ້າວ',
-                    genderE: 'Male'
                 },
                 {
                     name: 'ນາງ',
-                    genderE: 'Female'
                 },
-                // {
-                //     name: 'ອື່ນໆ',
-                //     genderE: 'Other'
-                // }
             ],
 
             provinces: [],
@@ -85,13 +79,15 @@ export default {
                             hideProgressBar: true,
                             closeButton: "button",
                             icon: true,
-                            rtl: false
+                            rtl: false,
+
                         });
+                        this.btnLoading = false;
+                        this.$refs.form.reset()
                     })
                 }
             })
-        }
-
+        },
     },
     watch: {
         'value.province_id': function (provinceID) {

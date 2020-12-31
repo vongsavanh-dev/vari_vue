@@ -8,6 +8,16 @@ export default {
                 v => !!v || 'ກະລຸນາປ້ອນ...',
                 // v => Number.isInteger(v) || 'ສະເພາະຕົວເລກ',
             ],
+            value: {
+                gender: "",
+                name: "",
+                surname: "",
+                phone: "",
+                province_id: "",
+                district_id: "",
+                village: "",
+                family_members: "",
+            },
             gender: [
                 {
                     name: 'ທ້າວ',
@@ -23,6 +33,7 @@ export default {
             selectedDistrict: {},
             filterDistricts: [],
             btnLoading: false,
+
         }
     },
     methods: {
@@ -37,7 +48,6 @@ export default {
             })
         },
 
-
         FilterDistricts(provinceID) {
             const result_checking = this.filterDistricts.filter(item => {
                 if (item.province_id == provinceID) {
@@ -47,28 +57,24 @@ export default {
             this.districts = result_checking;
         },
 
+
         ValidateFrom() {
             if (this.$refs.form.validate()) {
                 this.btnLoading = true;
-                this.UpdateData();
+                this.SaveData();
             }
         },
 
-        UpdateData() {
-            this.$axios.put(`member/${this.MemberEdit.id}`, {
-                'gender':this.MemberEdit.gender,
-                'name':this.MemberEdit.name,
-                'surname':this.MemberEdit.surname,
-                'phone':this.MemberEdit.phone,
-                'village':this.MemberEdit.village,
-                'province_id':this.MemberEdit.province_id,
-                'district_id':this.MemberEdit.district_id,
-                'family_members':this.MemberEdit.family_members,
-            }).then(res => {
-                if (res.status === 200) {
+        SaveData() {
+            this.$axios.post('member', this.value).then((res) => {
+                if (res) {
                     setTimeout(() => {
+                        this.$router.push({
+                            name: 'RegisterSuccess'
+                        });
                         this.$emit('close');
-                        this.$toast.success("ອັບເດດຂໍ້ມູນສຳເລັດ...", {
+                        this.$emit('success');
+                        this.$toast.info("ບັນທຶກຂໍ້ມູນສຳເລັດ...", {
                             position: "top-right",
                             timeout: 3000,
                             draggablePercent: 0.6,
@@ -76,18 +82,19 @@ export default {
                             hideProgressBar: true,
                             closeButton: "button",
                             icon: true,
-                            rtl: false
+                            rtl: false,
+
                         });
                         this.btnLoading = false;
                         this.$refs.form.reset()
                     })
-                }
-            }).catch(() => {});
-        }
-    },
 
+                }
+            })
+        },
+    },
     watch: {
-        'MemberEdit.province_id': function (provinceID) {
+        'value.province_id': function (provinceID) {
             this.FilterDistricts(provinceID);
         },
     }

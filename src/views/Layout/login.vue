@@ -10,7 +10,7 @@
       <v-form>
         <v-container>
           <v-row class="d-flex justify-center align-center">
-            <v-col cols="10" sm="10" class="mt-10">
+            <v-col cols="10" sm="10" class="mt-5">
               <v-text-field
                   label="ຊື່ຜູ້ໃຊ້ລະບົບ"
                   outlined
@@ -37,9 +37,9 @@
             </v-col>
           </v-row>
 
-          <v-row class="d-flex justify-center align-center mt-5">
-            <v-col cols="10">
-              <v-btn block x-large class="btn-login" @click="AdminSigIn()">
+          <v-row class="d-flex justify-center align-center">
+            <v-col cols="10" sm="10">
+              <v-btn block x-large  class="btn-login" @click="AdminSigIn()">
                 ເຂົ້າສູ່ລະບົບ
               </v-btn>
             </v-col>

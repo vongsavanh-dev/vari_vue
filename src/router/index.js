@@ -6,6 +6,7 @@ import Register from "@/views/Layout/Register";
 import Login from "@/views/Layout/login"
 import Dashboard from "@/views/Layout/Dashboard";
 import Middlewares from '@/Middlewares/index'
+import RegisterSuccess from "@/views/Layout/CRUD/RegisterSuccess";
 
 Vue.use(VueRouter)
 
@@ -52,6 +53,15 @@ const routes = [
     meta:{
       middleware:[Middlewares.guest],
       hiddens : true,
+    }
+  },
+  {
+    path: '/register-success',
+    name:'RegisterSuccess',
+    component:RegisterSuccess,
+    meta: {
+      middleware: [Middlewares.guest],
+      hiddens: true,
     }
   },
 

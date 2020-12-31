@@ -22,76 +22,33 @@
       </v-col>
     </v-row>
     <v-container fluid>
-      <v-card>
-        <v-simple-table dense>
-          <template v-slot:default>
-            <thead style="white-space: nowrap;">
-            <tr>
-              <th class="text-left">
-                ເພດ
-              </th>
-              <th class="text-left">
-                ຊື່
-              </th>
-              <th class="text-left">
-                ນາມສະກຸນ
-              </th>
-              <th class="text-left">
-                ເບີໂທ
-              </th>
-              <th class="text-left">
-                ບ້ານ
-              </th>
-              <th class="text-left">
-                ເມືອງ
-              </th>
-              <th class="text-left">
-               ແຂວງ
-              </th>
-              <th class="text-left">
-                ຈຳນວນສະມາຊິກ
-              </th>
-              <th></th>
-            </tr>
-            </thead>
-            <tbody style="white-space: nowrap;">
-            <tr :key="index"
-                :data="member"
-                v-for="(member, index) in (members)">
-              <td>{{ genderLao[member.gender] }}</td>
-              <td>{{ member.name }}</td>
-              <td>{{ member.surname }}</td>
-              <td>{{ member.phone }}</td>
-              <td>{{ member.village }}</td>
-              <td>{{ member.district_name }}</td>
-              <td>{{ member.province_name }}</td>
-              <td>{{ member.family_members }}</td>
-              <td class=" btn-btn-form d-flex justify-center align-center">
-                <span>
-                 <v-btn icon color="primary" @click="OpenModalEdit(member.id)">
-                    <icon name="td-icon-edit"/>
-                 </v-btn>
-                </span>
-                <span>
-               <v-btn icon color="error" @click="OpenModalDelete(member.id)">
-                   <icon name="td-icon-delete"/>
-               </v-btn>
-              </span>
-              </td>
-            </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-
-        <template #footer>
-          <v-pagination
-              v-model="members"
-              :length="Math.ceil(members.length / page)"
-          />
+      <v-data-table
+          :headers="headers"
+          :items="members"
+          :itemid="members"
+      >
+        <template v-slot:item.actions="{item}">
+          <v-icon
+              small
+              class="mr-2"
+              @click="OpenModalEdit(item.id)"
+          >
+            mdi-pencil
+          </v-icon>
+          <v-icon
+              color="red"
+              small
+              @click="OpenModalDelete(item.id)"
+          >
+            mdi-delete
+          </v-icon>
         </template>
 
+      </v-data-table>
 
-      </v-card>
+
+
+<!--      </v-card>-->
 
       <ModalAdd title="ເພີ່ມຂໍ້ມູນສະມາຊິກ">
         <template v-slot="{ close}">
@@ -101,7 +58,7 @@
 
       <ModalEdit title="ແກ້ໄຂຂໍ້ມູນສະມາຊິກ">
         <template v-slot="{ close }">
-          <EditMember  :MemberEdit="ListMember"  @close="close" @success="FetchMember()"/>
+          <EditMember :MemberEdit="ListMember" @close="close" @success="FetchMember()"/>
         </template>
       </ModalEdit>
 
@@ -127,28 +84,30 @@ export default {
     EditMember,
     DeleteMember,
   },
-  data() {
-    return {
-      members:[],
-      memberID:"",
-      ListMember:{},
-      page:'2',
-      max:'2',
-      pagination: {
-        page: 1,
-        total: 0,
-        perPage: 0,
-        visible: 7
+  data: () => ({
+    headers: [
+      {
+        text: 'ເພດ',
+        align: 'start',
+        value: 'gender',
       },
+      { text: 'ຊື່', value: 'name' },
+      { text: 'ນາມສະກຸນ', value: 'surname' },
+      { text: 'ເບີໂທລະສັບ', value: 'phone' },
+      { text: 'ບ້ານ', value: 'village' },
+      { text: 'ເມືອງ', value: 'district_name' },
+      { text: 'ແຂວງ', value: 'province_name' },
+      { text: 'ຈຳນວນສະມາຊິກ', value: 'family_members' },
+      { text: 'Actions', value: 'actions'},
+    ],
+    members:[],
+    memberID: "",
+    ListMember: {},
+    page: '1',
+  }),
 
-      genderLao:{
-        Male:'ທ້າວ',
-        Female:'ນາງ',
-        Other:'ອື່ນໆ'
-      }
-    }
-  },
-  methods:{
+  methods: {
+
     filterMember(memberID) {
       return (
           this.members.filter((item) => {
@@ -156,35 +115,33 @@ export default {
           })[0] || {}
       );
     },
+
     OpenModalAdd() {
       this.$store.commit("modalAdd_State", true);
     },
-    OpenModalEdit(memberID){
+
+    OpenModalEdit(memberID) {
       this.ListMember = {
         ...this.filterMember(memberID)
       };
-      this.$store.commit("modalEdit_State",true);
+      this.$store.commit("modalEdit_State", true);
     },
     OpenModalDelete(memberID) {
       this.memberID = memberID;
       this.$store.commit("modalDelete_State", true);
     },
-
-    FetchMember(){
-      this.$axios.get('member').then((res)=>{
-        if (res.data.status == 200){
-          this.members = res.data.data;
-          console.log(this.members)
+    FetchMember() {
+      this.$axios.get('member').then((res) => {
+        if (res.data.status == 200) {
+          this.members = res.data.data.data;
         }
       })
 
-    }
-
+    },
   },
   created() {
     this.FetchMember();
   }
-
 }
 </script>
 

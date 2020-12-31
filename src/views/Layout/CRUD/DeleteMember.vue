@@ -54,6 +54,7 @@ export default {
               icon: true,
               rtl: false
             })
+          this.btnLoading = false;
         }
       })
     }

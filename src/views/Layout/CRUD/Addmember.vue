@@ -7,7 +7,7 @@
               label="ເພດ"
               :rules="nameRules"
               :items="gender"
-              :item-value="'genderE'"
+              :item-value="'name'"
               :item-text="'name'"
               dense
               outlined

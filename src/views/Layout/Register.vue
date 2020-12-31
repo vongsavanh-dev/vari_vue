@@ -15,7 +15,7 @@
                  label="ເພດ"
                  :rules="nameRules"
                  :items="gender"
-                 :item-value="'genderE'"
+                 :item-value="'name'"
                  :item-text="'name'"
                  dense
                  outlined
@@ -71,7 +71,7 @@
               <v-select
                   dense
                   outlined
-                  v-model="value.province"
+                  v-model="value.province_id"
                   :rules="nameRules"
                   label="ແຂວງ"
                   name="province"
@@ -83,7 +83,7 @@
             <v-col cols="12" md="6" sm="12">
               <v-select
                   label="ເມືອງ"
-                  v-model="value.district"
+                  v-model="value.district_id"
                   :rules="nameRules"
                   dense
                   outlined
@@ -119,7 +119,7 @@
 </template>
 
 <script>
-import MixinsAddManage from "@/Mixin/VariMember/Add-Mange-Member"
+import MixinsAddManage from "@/Mixin/VariMember/UserRegister-Member"
 export default {
   mixins:[MixinsAddManage],
   created() {
@@ -186,10 +186,12 @@ export default {
     justify-content: center;
     align-items: center;
     //margin: 0 auto;
-    margin-bottom: 80px;
+    margin-top: 30px;
+    margin-bottom: 100px;
     & .card-register{
       width: 100%;
-      height: 100%;
+      height: auto;
+      margin-top: 50px;
     }
   }
 
