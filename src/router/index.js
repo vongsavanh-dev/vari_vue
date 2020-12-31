@@ -11,14 +11,14 @@ import RegisterSuccess from "@/views/Layout/CRUD/RegisterSuccess";
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home,
-    meta: {
-      middleware: [Middlewares.auth]
-    }
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: Home,
+  //   meta: {
+  //     middleware: [Middlewares.auth]
+  //   }
+  // },
   {
     path:'/admin-dashboard',
     name:'Dashboard',
@@ -37,7 +37,7 @@ const routes = [
 
   },
   {
-    path:'/user-register',
+    path:'/',
     name:'UserRegister',
     component:Register,
     meta: {
