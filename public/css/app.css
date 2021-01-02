@@ -1,0 +1,62 @@
+/**
+@FontFace
+ */
+
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+/* BoonBan */
+@font-face {
+    font-family: BoonBaan;
+    src: url(../fonts/ttf/BoonBaan-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: BoonBaan;
+    src: url(../fonts/ttf/BoonBaan-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: BoonBaan;
+    src: url(../fonts/ttf/BoonBaan-Italic.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: BoonBaan;
+    src: url(../fonts/ttf/BoonBaan-BoldItalic.ttf) format("truetype");
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* Roboto */
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/ttf/Roboto-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Roboto;
+    src: url(../fonts/ttf/Roboto-Bold.ttf) format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+/**
+@EndFontFace
+ */
+
+.body-hidden {
+    position: relative;
+    overflow: hidden !important;
+    -webkit-overflow-scrolling: auto;
+    height: auto;
+    touch-action: none;
+    touch-action: unset;
+}

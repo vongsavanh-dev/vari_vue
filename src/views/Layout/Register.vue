@@ -55,18 +55,7 @@
                   dense>
               </v-text-field>
             </v-col>
-            <v-col cols="12" md="6" sm="12">
-              <v-text-field
-                  label="ປ້ອນບ້ານ"
-                  v-model="value.village"
-                  :rules="nameRules"
-                  outlined
-                  dense>
-              </v-text-field>
-            </v-col>
-          </v-row>
 
-          <v-row dense>
             <v-col cols="12" md="6" sm="12">
               <v-select
                   dense
@@ -80,6 +69,10 @@
                   item-value="id">
               </v-select>
             </v-col>
+          </v-row>
+
+          <v-row dense>
+
             <v-col cols="12" md="6" sm="12">
               <v-select
                   label="ເມືອງ"
@@ -91,6 +84,16 @@
                   item-text="name"
                   item-value="id">
               </v-select>
+            </v-col>
+
+            <v-col cols="12" md="6" sm="12">
+              <v-text-field
+                  label="ປ້ອນບ້ານ"
+                  v-model="value.village"
+                  :rules="nameRules"
+                  outlined
+                  dense>
+              </v-text-field>
             </v-col>
           </v-row>
 

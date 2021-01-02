@@ -35,6 +35,7 @@ export default {
             selectedDistrict: {},
             filterDistricts: [],
             btnLoading: false,
+            errorMessage:[],
 
         }
     },
@@ -87,6 +88,13 @@ export default {
                         this.btnLoading = false;
                         this.$refs.form.reset()
                     })
+                }
+            }).catch((e)=>{
+                if(e && e.response){
+                    const  message = (e.response.data.data || {}).error
+                    this.errorMessage = message;
+                    console.log(this.errorMessage)
+
                 }
             })
         },
