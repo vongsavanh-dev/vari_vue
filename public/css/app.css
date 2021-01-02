@@ -52,11 +52,3 @@
 @EndFontFace
  */
 
-.body-hidden {
-    position: relative;
-    overflow: hidden !important;
-    -webkit-overflow-scrolling: auto;
-    height: auto;
-    touch-action: none;
-    touch-action: unset;
-}
