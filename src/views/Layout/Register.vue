@@ -117,7 +117,6 @@
                   v-model="value.golden_time"
                   row>
                 <v-radio
-                    color="blue"
                     label="9:00 - 16:00"
                     value="9:00-16:00">
                 </v-radio>
@@ -211,12 +210,11 @@ export default {
 
   .container-register{
     width: 100%;
-    height: 100vh;
+    height:auto;
     display: flex;
     justify-content: center;
     align-items: center;
     //margin: 0 auto;
-    margin-top: 30px;
     margin-bottom: 100px;
     & .card-register{
       width: 100%;
