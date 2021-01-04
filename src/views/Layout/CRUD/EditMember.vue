@@ -42,6 +42,7 @@
               outlined
               :rules="nameRules"
               v-model="MemberEdit.phone"
+              type="number"
               dense>
           </v-text-field>
         </v-col>
@@ -58,18 +59,27 @@
 
       <v-row dense>
         <v-col cols="12" md="6" sm="12">
-          <v-select
-              dense
-              outlined
-              v-model="MemberEdit.province_id"
-              :rules="nameRules"
+<!--          <v-select-->
+<!--              dense-->
+<!--              outlined-->
+<!--              v-model="MemberEdit.province_id"-->
+<!--              :rules="nameRules"-->
+<!--              label="ແຂວງ"-->
+<!--              name="province_id"-->
+<!--              :items="provinces"-->
+<!--              item-text="name"-->
+<!--              item-value="id"-->
+<!--          >-->
+<!--          </v-select>-->
+
+          <v-text-field
+              value="ນະຄອນຫຼວງວຽງຈັນ"
               label="ແຂວງ"
-              name="province_id"
-              :items="provinces"
-              item-text="name"
-              item-value="id"
-          >
-          </v-select>
+              outlined
+              disabled
+              dense
+          ></v-text-field>
+
         </v-col>
         <v-col cols="12" md="6" sm="12">
           <v-select
@@ -93,6 +103,7 @@
               v-model="MemberEdit.family_members"
               :rules="numberRules"
               rows="1"
+              type="number"
           ></v-textarea>
         </v-col>
       </v-row>
@@ -139,7 +150,7 @@ export default {
   mixins: [MixinsEditManage],
 
   created() {
-    this.FetchData();
+    this.getDistrict();
   }
 }
 </script>

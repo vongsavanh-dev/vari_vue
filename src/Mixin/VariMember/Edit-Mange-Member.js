@@ -17,34 +17,43 @@ export default {
                 },
             ],
 
-            provinces: [],
+            // provinces: [],
             districts: [],
-            selectedProvince: {},
-            selectedDistrict: {},
-            filterDistricts: [],
+            // selectedProvince: {},
+            // selectedDistrict: {},
+            // filterDistricts: [],
             btnLoading: false,
         }
     },
     methods: {
-        FetchData() {
-            this.$http.get('list-location').then((res) => {
-                const items = res.data;
-                this.provinces = items.provinces;
-                this.selectedProvince = {...this.provinces[0]};
-                this.filterDistricts = items.districts;
-            }).catch(() => {
+        // FetchData() {
+        //     this.$http.get('list-location').then((res) => {
+        //         const items = res.data;
+        //         this.provinces = items.provinces;
+        //         this.selectedProvince = {...this.provinces[0]};
+        //         this.filterDistricts = items.districts;
+        //     }).catch(() => {
+        //
+        //     })
+        // },
+        //
+        //
+        // FilterDistricts(provinceID) {
+        //     const result_checking = this.filterDistricts.filter(item => {
+        //         if (item.province_id == provinceID) {
+        //             return item;
+        //         }
+        //     });
+        //     this.districts = result_checking;
+        // },
 
-            })
-        },
-
-
-        FilterDistricts(provinceID) {
-            const result_checking = this.filterDistricts.filter(item => {
-                if (item.province_id == provinceID) {
-                    return item;
+        getDistrict(){
+            this.$axios.get('district').then((res) => {
+                console.log(res)
+                if(res.data.status === 200){
+                    this.districts = res.data.data
                 }
-            });
-            this.districts = result_checking;
+            })
         },
 
         ValidateFrom() {
@@ -87,10 +96,13 @@ export default {
             }).catch(() => {});
         }
     },
-
-    watch: {
-        'MemberEdit.province_id': function (provinceID) {
-            this.FilterDistricts(provinceID);
-        },
+    created() {
+        this.getDistrict();
     }
+
+    // watch: {
+    //     'MemberEdit.province_id': function (provinceID) {
+    //         this.FilterDistricts(provinceID);
+    //     },
+    // }
 }

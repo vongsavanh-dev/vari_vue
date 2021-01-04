@@ -47,29 +47,42 @@
 
           <v-row dense>
             <v-col cols="12" md="6" sm="12" >
-              <v-text-field
+              <v-text-field class="style-none"
                   label="ປ້ອນເບີໂທ"
                   v-model="value.phone"
                   :rules="numberRules"
                   outlined
                   type="number"
+                  append-icon="false"
                   dense>
               </v-text-field>
             </v-col>
 
+<!--            <v-col cols="12" md="6" sm="12">-->
+<!--              <v-select-->
+<!--                  dense-->
+<!--                  outlined-->
+<!--                  v-model="value.province_id"-->
+<!--                  :rules="nameRules"-->
+<!--                  label="ແຂວງ"-->
+<!--                  name="province"-->
+<!--                  :items="provinces"-->
+<!--                  item-text="name"-->
+<!--                  item-value="id">-->
+<!--              </v-select>-->
+<!--            </v-col>-->
+
             <v-col cols="12" md="6" sm="12">
-              <v-select
-                  dense
-                  outlined
-                  v-model="value.province_id"
-                  :rules="nameRules"
+              <v-text-field
+                  value="ນະຄອນຫຼວງວຽງຈັນ"
                   label="ແຂວງ"
-                  name="province"
-                  :items="provinces"
-                  item-text="name"
-                  item-value="id">
-              </v-select>
+                  outlined
+                  disabled
+                  dense
+              ></v-text-field>
             </v-col>
+
+
           </v-row>
 
           <v-row dense>
@@ -101,7 +114,7 @@
           <v-row>
             <v-col cols="12" >
               <v-text-field
-                  class="mx-2"
+                  class="mx-2 style-none"
                   label="ຈຳນວນນ້ຳຊົມໃຊ້ຕໍ່ອາທິດ (ຕຸກ)"
                   v-model="value.family_members"
                   :rules="numberRules"
@@ -109,6 +122,7 @@
                   rows="1"
                   dense
                   type="number"
+                  append-icon="false"
               ></v-text-field>
             </v-col>
           </v-row>
@@ -148,7 +162,7 @@ import MixinsAddManage from "@/Mixin/VariMember/UserRegister-Member"
 export default {
   mixins:[MixinsAddManage],
   created() {
-    this.FetchData();
+
   }
 }
 </script>

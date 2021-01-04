@@ -44,21 +44,18 @@
               v-model="value.phone"
               :rules="numberRules"
               outlined
+              type="number"
               dense>
           </v-text-field>
         </v-col>
         <v-col cols="12" md="6" sm="12">
-          <v-select
-              dense
-              outlined
-              v-model="value.province_id"
-              :rules="nameRules"
+          <v-text-field
+              value="ນະຄອນຫຼວງວຽງຈັນ"
               label="ແຂວງ"
-              name="province"
-              :items="provinces"
-              item-text="name"
-              item-value="id">
-          </v-select>
+              outlined
+              disabled
+              dense
+          ></v-text-field>
         </v-col>
       </v-row>
 
@@ -96,6 +93,7 @@
               v-model="value.family_members"
               :rules="numberRules"
               rows="1"
+              type="number"
           ></v-textarea>
         </v-col>
       </v-row>
@@ -139,7 +137,6 @@ import MixinsAddManage from "@/Mixin/VariMember/Add-Mange-Member"
 export default {
   mixins: [MixinsAddManage],
   created() {
-    this.FetchData();
   },
 }
 </script>
