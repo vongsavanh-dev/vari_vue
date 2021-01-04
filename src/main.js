@@ -9,6 +9,7 @@ import  '@/plugins/Axios'
 
 import Toast from 'vue-toastification'
 import "../public/css/ToastNotification.css"
+import '../public/css/app.css'
 
 
 import ModalAdd from "@/components/Modal/ModalAdd";
