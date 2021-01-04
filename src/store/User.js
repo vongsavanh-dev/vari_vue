@@ -7,7 +7,8 @@ const $axios = axios.create(
     }
 );
 const state={
-    token: localStorage.getItem('access_token') || null
+    token: localStorage.getItem('access_token') || null,
+    msgErrors: '',
 };
 
 const getters ={
@@ -20,12 +21,21 @@ const getters ={
     isAuth(state) {
         return state.token && state.token !== null;
     },
+
+    ShowMsgErrors(state) {
+        return state.msgErrors;
+    }
 }
 
 const mutations={
     AdminSigIn(state, token) {
         state.token = token
     },
+
+    Commit_ErrorLogin(state, payload) {
+        state.msgErrors = payload;
+    },
+
     destroyToken(state) {
         state.token = null;
     },

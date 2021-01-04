@@ -6,7 +6,7 @@
           <icon name="people-user" class="ml-3"/>
           <v-list-item-content class="ml-3">
             <v-list-item-title class="title-content">
-              <span>ຈຳນວນສະມາຊິກ</span>
+              <span>ຈຳນວນສະມາຊິກ *(<span style="color: red">{{members.length}}</span>)</span>
             </v-list-item-title>
           </v-list-item-content>
         </v-list-item>

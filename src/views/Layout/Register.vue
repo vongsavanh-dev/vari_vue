@@ -170,15 +170,17 @@ export default {
 <style scoped lang="scss">
 .container-register{
   width: 100%;
-  height: 100vh;
+  height: 690px;
   display: flex;
   justify-content: center;
   align-items: center;
   //margin: 0 auto;
-  margin-bottom: 80px;
+  //margin-bottom: 80px;
   & .card-register{
       width: 700px;
       height: 670px;
+
+
   }
 }
 .image-register {

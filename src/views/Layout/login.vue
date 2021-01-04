@@ -7,6 +7,9 @@
       <div class="title-content">
         <h2>ລ໋ອກອິນ<span>ເຂົ້າສູ່ລະບົບ</span></h2>
       </div>
+      <div>
+        <span class="textShow-error">  {{ $store.getters["User/ShowMsgErrors"] }}</span>
+      </div>
       <v-form>
         <v-container>
           <v-row class="d-flex justify-center align-center">
@@ -95,6 +98,14 @@ export default {
 }
 </script>
 <style scoped lang="scss">
+.textShow-error{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-family;
+  font-size: 18px;
+  color: red;
+}
 .container-login {
   width: 100%;
   height: 100vh;
