@@ -15,7 +15,7 @@
 <script>
 
 import Navbar from "@/components/Nabar";
-import "public/css/app.css"
+import "../public/css/app.css"
 
 export default {
   name: 'App',
