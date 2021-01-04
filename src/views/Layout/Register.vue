@@ -52,6 +52,7 @@
                   v-model="value.phone"
                   :rules="numberRules"
                   outlined
+                  type="number"
                   dense>
               </v-text-field>
             </v-col>
@@ -107,6 +108,7 @@
                   outlined
                   rows="1"
                   dense
+                  type="number"
               ></v-text-field>
             </v-col>
           </v-row>
