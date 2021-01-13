@@ -138,8 +138,9 @@ export default {
     },
     FetchMember() {
       this.$axios.get('member').then((res) => {
+        console.log(res)
         if (res.data.status == 200) {
-          this.members = res.data.data.data;
+          this.members = res.data.data;
           console.log(this.members)
         }
       })
