@@ -26,6 +26,8 @@
           :headers="headers"
           :items="members"
           :itemid="members"
+          :loading="loading"
+          loading-text="Loading... Please wait"
 
       >
         <template v-slot:item.actions="{item}">
@@ -110,6 +112,7 @@ export default {
     memberID: "",
     ListMember: {},
     page: '1',
+    loading:false,
   }),
 
   methods: {
@@ -137,9 +140,11 @@ export default {
       this.$store.commit("modalDelete_State", true);
     },
     FetchMember() {
+      this.loading = true;
       this.$axios.get('member').then((res) => {
         if (res.data.status == 200) {
           this.members = res.data.data;
+          this.loading = false;
         }
       })
 

@@ -126,7 +126,7 @@
               ></v-text-field>
             </v-col>
           </v-row>
-          <v-row>
+          <v-row v-show="false">
             <v-col cols="12">
               <span class="title-timeline">ເວລາສະດວກຮັບນ້ຳດື່ມ</span>
               <v-radio-group
