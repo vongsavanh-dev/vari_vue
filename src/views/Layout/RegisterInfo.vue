@@ -30,6 +30,10 @@
           loading-text="Loading... Please wait"
 
       >
+        <template v-slot:item.created_at="{item}">
+          <td>{{moment(item.created_at).format('DD/MM/YYYY')}}</td>
+        </template>
+
         <template v-slot:item.actions="{item}">
           <v-icon
               small
@@ -48,8 +52,6 @@
         </template>
 
       </v-data-table>
-
-
 
 <!--      </v-card>-->
 
@@ -80,6 +82,7 @@ import AddMember from "@/views/Layout/CRUD/Addmember";
 import EditMember from "@/views/Layout/CRUD/EditMember";
 import DeleteMember from "@/views/Layout/CRUD/DeleteMember";
 
+
 export default {
   components: {
     icon,
@@ -106,6 +109,7 @@ export default {
       { text: 'ແຂວງ', value: 'provice_name',align:'center',sortable: false },
       { text: 'ຈຳນວນນ້ຳທີ່ຊົມໃຊ້', value: 'family_members',align:'center',sortable: false },
       { text: 'ເວລາສະດວກຮັບນ້ຳ', value: 'golden_time',align:'center',sortable: false },
+      { text: 'ວັນທີ່ລົງທະບຽນ', value: 'created_at',align:'center',sortable: false },
       { text: 'Actions', value: 'actions',sortable: false},
     ],
     members:[],

@@ -7,6 +7,7 @@ import '@assets/scss/main.scss'
 import 'material-design-icons-iconfont/dist/material-design-icons.css'
 import  '@/plugins/Axios'
 
+
 import Toast from 'vue-toastification'
 import "../public/css/ToastNotification.css"
 import '../public/css/app.css'
@@ -18,6 +19,9 @@ import ModalDelete from "@/components/Modal/ModalDelete";
 
 // import * as Notification from '@/plugins/Notification'
 // Vue.prototype.$toast = Notification;
+import * as moment from 'moment'
+
+Vue.prototype.moment = moment;
 
 Vue.config.productionTip = false
 Vue.component('ModalAdd',ModalAdd)
